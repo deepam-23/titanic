@@ -211,8 +211,7 @@ def main():
                     bot_message["chart"] = chart
                 st.session_state.messages.append(bot_message)
                 
-                # Clear input and rerun
-                st.session_state.input_question = ""
+                # Rerun to update the chat
                 st.rerun()
     
     with col2:
