@@ -261,6 +261,8 @@ def main():
         question = st.session_state.example_question
         del st.session_state.example_question
         # Add the question to the input
+        if "input_question" not in st.session_state:
+            st.session_state.input_question = ""
         st.session_state.input_question = question
     
     # Chat interface
@@ -317,7 +319,8 @@ def main():
                 st.session_state.messages.append(bot_message)
                 
                 # Clear the input
-                st.session_state.input_question = ""
+                if "input_question" in st.session_state:
+                    st.session_state.input_question = ""
                 
                 # Rerun to update the chat
                 st.rerun()
